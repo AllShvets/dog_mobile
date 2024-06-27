@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import ProcedureTypes, CalendarRecords
 
-# Register your models here.
+admin.site.register(ProcedureTypes)
+admin.site.register(CalendarRecords)

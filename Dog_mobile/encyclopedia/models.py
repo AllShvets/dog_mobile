@@ -1,3 +1,12 @@
 from django.db import models
 
-# Create your models here.
+
+class EncyclopediaRecords(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
+    description = models.TextField(verbose_name='Описание статьи')
+    full_text = models.TextField(verbose_name='Текст статьи')
+    image = models.ImageField(
+        upload_to='article_files',
+        blank=False,
+        verbose_name='Картинка'
+    )

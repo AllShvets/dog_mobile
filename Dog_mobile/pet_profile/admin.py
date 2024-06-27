@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PetTypes, PetProfiles, MedFiles
 
-# Register your models here.
+admin.site.register(PetTypes)
+admin.site.register(PetProfiles)
+admin.site.register(MedFiles)
