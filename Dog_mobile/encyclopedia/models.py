@@ -10,3 +10,10 @@ class EncyclopediaRecords(models.Model):
         blank=False,
         verbose_name='Картинка'
     )
+
+    class Meta:
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
+
+    def __str__(self):
+        return self.title

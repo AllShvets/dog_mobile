@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
-    'registration.apps.RegistrationConfig',
+    'users.apps.UsersConfig',
     'encyclopedia.apps.EncyclopediaConfig',
     'pet_calendar.apps.PetCalendarConfig',
     'pet_profile.apps.PetProfileConfig',
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Dog_mobile.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_mobile',
+        'NAME': 'dog_mobile',
         'USER': 'allshvets',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
@@ -122,7 +122,7 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
