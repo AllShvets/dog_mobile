@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    pass
+    email = models.EmailField(blank=False, verbose_name='Почта')
 
     class Meta:
         verbose_name = 'Пользователь'
