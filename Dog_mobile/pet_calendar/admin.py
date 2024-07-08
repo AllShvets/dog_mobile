@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProcedureTypes, CalendarRecords
+from .models import ProcedureType, CalendarRecord
 
-admin.site.register(ProcedureTypes)
-admin.site.register(CalendarRecords)
+admin.site.register(ProcedureType)
+admin.site.register(CalendarRecord)

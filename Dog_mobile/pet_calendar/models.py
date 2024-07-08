@@ -1,9 +1,18 @@
 from django.db import models
-from pet_profile.models import PetProfiles
+from pet_profile.models import PetProfile
 
 
-class ProcedureTypes(models.Model):
-    name = models.CharField(max_length=255, verbose_name='Тип процедуры')
+class ProcedureType(models.Model):
+    name = models.CharField(
+        max_length=255,
+        verbose_name='Тип процедуры'
+    )
+    key = models.CharField(
+        max_length=50,
+        unique=True,
+        verbose_name='Ключ',
+        blank=False
+    )
 
     class Meta:
         verbose_name = 'Процедура'
@@ -13,16 +22,17 @@ class ProcedureTypes(models.Model):
         return self.name
 
 
-class CalendarRecords(models.Model):
-    pet_profile_id = models.ForeignKey(
-        PetProfiles,
+class CalendarRecord(models.Model):
+    pet_profile = models.ForeignKey(
+        PetProfile,
         on_delete=models.CASCADE,
         verbose_name='Питомец'
     )
-    procedure_type_id = models.ForeignKey(
-        ProcedureTypes,
+    procedure_type = models.ForeignKey(
+        ProcedureType,
         on_delete=models.CASCADE,
         null=False,
+        default=1,
         verbose_name='Тип процедуры'
     )
     description = models.TextField(

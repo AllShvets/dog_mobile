@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'Dog_mobile.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dog_mobile',
-        'USER': 'allshvets',
-        'PASSWORD': 'admin',
+        'NAME': 'dog_db',
+        'USER': 'admin1',
+        'PASSWORD': 'allshvets',
         'HOST': 'localhost',
         'PORT': '5432'
     }

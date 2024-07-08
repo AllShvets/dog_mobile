@@ -2,11 +2,16 @@ from django.db import models
 from users.models import CustomUser
 
 
-class PetTypes(models.Model):
-    pet_type = models.CharField(
+class PetType(models.Model):
+    name = models.CharField(
         max_length=256,
-        unique=True,
         verbose_name='Тип питомца',
+        blank=False
+    )
+    key = models.CharField(
+        max_length=50,
+        unique=True,
+        verbose_name='Ключ',
         blank=False
     )
 
@@ -18,17 +23,18 @@ class PetTypes(models.Model):
         return self.pet_type
 
 
-class PetProfiles(models.Model):
-    user_id = models.ForeignKey(
+class PetProfile(models.Model):
+    user = models.ForeignKey(
         CustomUser,
         on_delete=models.CASCADE,
         verbose_name='Пользователь'
     )
     pet_name = models.CharField(max_length=255, verbose_name='Имя питомца')
-    pet_type_id = models.ForeignKey(
-        PetTypes,
+    pet_type = models.ForeignKey(
+        PetType,
         on_delete=models.CASCADE,
         null=False,
+        default=1,
         verbose_name='Тип процедуры'
     )
     age = models.IntegerField(verbose_name='Возраст питомца')
@@ -42,10 +48,11 @@ class PetProfiles(models.Model):
         return self.pet_name
 
 
-class MedFiles(models.Model):
-    pet_profile_id = models.ForeignKey(
-        PetProfiles,
+class MedFile(models.Model):
+    pet_profile = models.ForeignKey(
+        PetProfile,
         on_delete=models.CASCADE,
+        default=1,
         verbose_name='Питомец'
     )
     med_file = models.ImageField(

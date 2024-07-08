@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import EncyclopediaRecords
+from .models import EncyclopediaRecord
 
-admin.site.register(EncyclopediaRecords)
+admin.site.register(EncyclopediaRecord)

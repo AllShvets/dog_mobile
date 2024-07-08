@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import EncyclopediaRecords
+from .models import EncyclopediaRecord
 from .serializers import EncyclopediaSerializer
 
 
 class EncyclopediaApiView(generics.ListAPIView):
-    queryset = EncyclopediaRecords.objects.all()
+    queryset = EncyclopediaRecord.objects.all()
     serializer_class = EncyclopediaSerializer
