@@ -7,3 +7,4 @@ from .serializers import EncyclopediaSerializer
 class EncyclopediaApiView(generics.ListAPIView):
     queryset = EncyclopediaRecord.objects.all()
     serializer_class = EncyclopediaSerializer
+    http_method_names = ['get']
